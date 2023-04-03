@@ -1,0 +1,345 @@
+$bc: #f1f1f1;
+$bg : #f5f5f5;
+$sombre:#333;
+
+@mixin centerX{
+    display:flex;
+    justify-content: center;
+}
+body{
+   height: 100vh;
+   width: 100%;
+   margin: 0;
+   padding: 0; 
+
+}
+
+// Navbar 
+.navbar{
+    height:60px;
+    width: 100%;
+    background: $bg;
+    border-bottom: 1px solid black;
+    position: fixed;
+    z-index: 100;
+    @include centerX();
+
+    .checkbox{
+        display:none;
+    }
+    .contItems{
+        font-size: 22px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        .items{
+            margin-right: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            color: black;
+            &:hover{
+                color: #424242;
+            }
+        }
+    }
+
+    .logoMenu{
+        width: 30px;
+        position: absolute;
+        right: 20px;
+        top:15px;
+        display:none;
+    }
+}
+@media screen and (max-width: 700px){
+    .navbar{
+        display: block;
+
+        .checkbox:checked ~ .contItems{
+            display: block;
+        }
+        .contItems{
+            display: none;
+            border-top: 1px solid black;
+            text-align: center;
+            margin-top: 60px;
+
+            .items{
+                display: block;
+                background-color:$bg;
+                 margin-right: 0;
+                padding:10px 20px;
+                &:nth-child(1){
+                    padding-top:20px
+                }
+
+            }
+        }
+        .logoMenu{
+            display: block;
+        }
+    }
+}
+
+// Accueil
+
+.accueil{
+    height: 800px;
+    width: 100%;
+    background-image: url('../ressources/home.jpg');
+    background-size: cover;
+    background-position: center;
+    @include centerX();
+    flex-direction: column;
+    align-items: center;
+
+    h1{
+        color: $bc;
+        font-size: 75px;
+        letter-spacing: 5px;
+        padding-top: 150px;
+        margin: 0;
+       
+       
+        &::first-letter{
+            font-size: 125px;
+        }
+    }
+
+    .sousTitre{
+        color: $bc;
+        font-size: 22px;
+    }
+    }
+
+
+    @media screen and (max-width: 1000px){
+        .accueil{
+            h1{
+                font-size:38px
+            }
+        }
+    }
+
+    @media screen and (max-width: 760px){
+        .accueil{
+            height: 600px;
+            h1{
+                font-size:38px
+            }
+            .sousTitre{
+                font-size: 19px;
+            }
+        }
+    }
+
+        @media screen and (max-width: 550px){
+        .accueil{
+            height: 500px;
+            h1{
+                font-size:30px;
+
+                &::first-letter{
+                    font-size:50px;
+                }
+            }
+            .sousTitre{
+                font-size: 16px;
+            }
+        }
+    }
+
+    // Séction 1
+    .titreSec1{
+        text-align: center;
+        font-size:40px ;
+        padding:20px 0;
+    }
+    .txtImg{
+        width: 100%;
+        @include centerX();
+        border-bottom: 1px dashed lightskyblue;
+
+        .containerSection1{
+            @include centerX();
+            width: 1200px;
+            
+            .contImgSec1{
+                width: 45%;
+                margin: 20px;
+               
+                
+                img{
+                    width: 100%;
+                    height: auto;
+                    border-radius: 2px;
+                }
+            }
+
+            .contTxtSec1{
+                width: 45%;
+                margin: 20px;
+                h2{
+                    text-align: center;
+                    font-size: 30px;
+                }
+                .sousTitreSec1{
+                    text-align: center;
+                }
+                .txtSec1{
+                 font-size: 25px;
+                 padding:15px;
+                 line-height: 35px;
+
+                 &::first-letter{
+                    font-size: 35px;
+                 }
+                }
+                hr{
+                    width:60px
+                }
+            }
+        }
+    }
+
+@media screen and (max-width: 1200px ){
+    .txtImg{
+        .containerSection1{
+            flex-direction: column;
+            align-items: center;
+          
+            width: 500px;
+
+            .contImgSec1{
+                width: 100%;
+            }
+            .contTxtSec1{
+                width: 100%;
+            }
+        }
+    }
+}
+@media screen and (max-width: 550px){
+    .titreSec1{
+        font-size: 25px;
+    }
+}
+
+
+
+    // Séction 2 Galerie 
+
+    .titreSec2{
+        text-align: center;
+        font-size: 35px;
+        padding-bottom: 15px;
+    }
+    .diviseur{
+        width:25%;
+    }
+.galerieImg{
+    width: 100%;
+    @include centerX();
+    padding-top: 30px;
+    .containerGal{
+    
+        width: 1200px;
+        @include centerX();
+        flex-wrap: wrap;
+        .imgGal{
+            width:320px;
+            height:380px;
+            margin:20px;
+            overflow: hidden;
+
+            img{
+                width:100%;
+                height: auto;
+            }
+        }
+    }
+}
+@media screen and (max-width: 550px){
+    .titreSec2{
+        font-size: 25px;
+    }
+}
+//  Parallax
+
+.parallax{
+    margin-top: 70px;;
+    width: 100%;
+    height:300px;
+    background: url('../ressources/para.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    @include centerX();
+    align-items: center;
+    h3{
+        color: $bc;
+        text-align: center;
+        font-size: 50px;
+        letter-spacing: 5px;
+    }
+  
+    
+}
+
+// Séction formulaire 
+
+.titreSec3{
+    text-align: center;
+}
+
+.formulaire{
+    width: 100%;
+
+    @include centerX();
+
+    form{
+       
+        width: 60%;
+
+        .row{
+            width: 100%;
+
+            input, textarea{
+                width: 100%;
+                padding: 11px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            textarea{
+                height: 150px;
+            }
+
+            .subBtn{
+                width: 40%;
+                display: block;
+                margin: 0 auto;
+                margin-top: 15px;
+                cursor: pointer;
+                transition: all 0.2s ease-in-out;
+
+                &:hover{
+                    background-color: midnightblue;
+                    color: $bc;
+                }
+            }
+
+            &:nth-child(2), &:nth-child(3){
+                margin-top: 30px;
+            }
+        }
+        
+    }
+}
+
+// footer
+footer{
+    @include centerX();
+    border-top:1px dashed $sombre ;
+    margin-top: 150px;
+    font-size: 22px;
+}
